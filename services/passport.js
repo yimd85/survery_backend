@@ -5,6 +5,10 @@ const keys = require("../config/keys");
 
 const User = moongoose.model("users");
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
 passport.use(
   new GoogleStrategy(
     {
